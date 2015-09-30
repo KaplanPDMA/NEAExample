@@ -29,10 +29,11 @@ public class MainActivity extends ActionBarActivity {
 
         textView = (TextView) findViewById(R.id.textView);
 
+        //please download your API keys from https://www.nea.gov.sg/api
         String dataset = "nowcast";
-        String keyref = "781CF461BB6606ADEA6B1B4F3228DE9D586412BA7716CB8F";
+        String keyref = "";
 
-        String url = "http://www.nea.gov.sg/api/WebAPI?dataset=nowcast&keyref=781CF461BB6606ADEA6B1B4F3228DE9D586412BA7716CB8F";
+        String url = "http://www.nea.gov.sg/api/WebAPI?dataset=" + dataset + "&keyref=" + keyref;
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(url, new AsyncHttpResponseHandler() {
 
