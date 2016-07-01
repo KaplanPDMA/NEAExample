@@ -34,8 +34,8 @@ public class MainActivity extends ActionBarActivity {
         textViewTemperature = (TextView) findViewById(R.id.textViewTemperature);
 
         //please download your API keys from https://www.nea.gov.sg/api
-        //String dataset = "nowcast";
-        String dataset = "12hrs_forecast";
+        String dataset = "nowcast";
+        //String dataset = "12hrs_forecast";
         String keyref = "";
 
         String url = "http://www.nea.gov.sg/api/WebAPI?dataset=" + dataset + "&keyref=" + keyref;
@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] response) {
                 // called when response HTTP status is "200 OK"
-                //textView.setText(new String(response));
+//                textView.setText(new String(response));
 
                 String line ="";
 
@@ -89,21 +89,21 @@ public class MainActivity extends ActionBarActivity {
 
                         case XmlPullParser.END_TAG:
 
-//                            if(name.equals("area")){
-//                                String area = xpp.getAttributeValue(null,"name");
-//                                String forecast = xpp.getAttributeValue(null,"forecast");
-//                                line += area + ": " + forecast + "\n";
-//                                textView.setText(line);
-//                            }
+                            if(name.equals("area")){
+                                String area = xpp.getAttributeValue(null,"name");
+                                String forecast = xpp.getAttributeValue(null,"forecast");
+                                line += area + ": " + forecast + "\n";
+                                textView.setText(line);
+                            }
 
                             //<temperature unit='Degrees Celsius' low='27 ' high=' 32' />
-                            if(name.equals("temperature")){
-                                String unit = xpp.getAttributeValue(null,"unit");
-                                String low = xpp.getAttributeValue(null,"low");
-                                String high = xpp.getAttributeValue(null,"high");
-                                String output = "" + low + " - " + high + " " + unit;
-                                textViewTemperature.setText(output);
-                            }
+//                            if(name.equals("temperature")){
+//                                String unit = xpp.getAttributeValue(null,"unit");
+//                                String low = xpp.getAttributeValue(null,"low");
+//                                String high = xpp.getAttributeValue(null,"high");
+//                                String output = "" + low + " - " + high + " " + unit;
+//                                textViewTemperature.setText(output);
+//                            }
 
 
 

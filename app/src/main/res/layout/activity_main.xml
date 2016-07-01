@@ -44,56 +44,17 @@
             android:layout_weight="0.3" />
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="380dp"
-        android:layout_height="300dp"
-        android:background="@drawable/sgmap"
-       >
-
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/imageViewNorth"
-            android:layout_marginTop="59dp"
-            android:background="@drawable/cloudy"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/imageViewSouth"
-            android:background="@drawable/rainy"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="120dp"
-            android:layout_marginBottom="50dp" />
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/imageViewEast"
-            android:background="@drawable/sunny"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="150dp"
-            android:layout_marginRight="100dp" />
-        <ImageView
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:id="@+id/imageViewWest"
-            android:background="@drawable/cloudy"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="100dp" />
-    </RelativeLayout>
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView" />
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView" />
+    </ScrollView>
 
 </LinearLayout>
