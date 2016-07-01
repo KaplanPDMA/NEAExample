@@ -10,13 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.*;
-import org.apache.http.Header;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
+
+import cz.msebera.android.httpclient.Header;
+
 
 public class MainActivity extends ActionBarActivity {
 
