@@ -16,6 +16,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
     TextView textView;
     TextView textViewTemperature;
+    ArrayList<AreaData> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,10 @@ public class MainActivity extends ActionBarActivity {
         textView = (TextView) findViewById(R.id.textView);
         textViewTemperature = (TextView) findViewById(R.id.textViewTemperature);
 
+        list = new ArrayList<AreaData>();
+
         //please download your API keys from https://www.nea.gov.sg/api
-        String dataset = "nowcast";
+        String dataset = "2hr_nowcast";
         //String dataset = "12hrs_forecast";
         String keyref = "781CF461BB6606ADEA6B1B4F3228DE9D586412BA7716CB8F";
 
@@ -92,8 +96,11 @@ public class MainActivity extends ActionBarActivity {
                             if(name.equals("area")){
                                 String area = xpp.getAttributeValue(null,"name");
                                 String forecast = xpp.getAttributeValue(null,"forecast");
+                                String lat = xpp.getAttributeValue(null,"lat");
+                                String lon = xpp.getAttributeValue(null,"lon");
                                 line += area + ": " + forecast + "\n";
-                                textView.setText(line);
+                                AreaData areaData = new AreaData(area, forecast, lon, lat);
+                                list.add(areaData);
                             }
 
                             //<temperature unit='Degrees Celsius' low='27 ' high=' 32' />
@@ -117,6 +124,9 @@ public class MainActivity extends ActionBarActivity {
                         e.printStackTrace();
                     }
                 }
+
+//                textView.setText(line);
+                textView.setText("Number of items: " + list.size());
 
             }
 
